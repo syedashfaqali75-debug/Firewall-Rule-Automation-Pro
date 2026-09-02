@@ -67,3 +67,30 @@ def add_rule():
     save_rules(rules)
 
     print("\nFirewall rule added successfully!")
+
+
+def delete_rule():
+    rules = load_rules()
+
+    if not rules:
+        print("\nNo firewall rules found.")
+        return
+
+    name = input("Enter rule name to delete: ").strip()
+
+    if not name:
+        print("Rule name cannot be empty.")
+        return
+
+    updated_rules = [
+        rule for rule in rules
+        if rule["name"].lower() != name.lower()
+    ]
+
+    if len(updated_rules) == len(rules):
+        print("\nRule not found.")
+        return
+
+    save_rules(updated_rules)
+
+    print("\nFirewall rule deleted successfully!")
