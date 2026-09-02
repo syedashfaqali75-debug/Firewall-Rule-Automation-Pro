@@ -1,0 +1,34 @@
+{
+  "rules": [
+    {
+      "name": "Block Telnet",
+      "protocol": "TCP",
+      "port": 23,
+      "action": "DENY"
+    },
+    {
+      "name": "Allow HTTP",
+      "protocol": "TCP",
+      "port": 80,
+      "action": "ALLOW"
+    },
+    {
+      "name": "Allow HTTPS",
+      "protocol": "TCP",
+      "port": 443,
+      "action": "ALLOW"
+    },
+    {
+      "name": "Block FTP",
+      "protocol": "TCP",
+      "port": 21,
+      "action": "DENY"
+    },
+    {
+      "name": "Test Validation",
+      "protocol": "TCP",
+      "port": 999,
+      "action": "DENY"
+    }
+  ]
+}
