@@ -61,3 +61,10 @@ Firewall-Rule-Automation-Pro/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+## ▶️ How to Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro.git
+cd Firewall-Rule-Automation-Pro
