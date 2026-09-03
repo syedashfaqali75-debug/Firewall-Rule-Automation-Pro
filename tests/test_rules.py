@@ -23,12 +23,13 @@ def test_save_and_load_rules(tmp_path):
     original_file = app.rules.RULES_FILE
     app.rules.RULES_FILE = str(test_file)
 
-    save_rules(test_rules)
-    loaded_rules = load_rules()
+    try:
+        save_rules(test_rules)
+        loaded_rules = load_rules()
 
-    assert loaded_rules == test_rules
-
-    app.rules.RULES_FILE = original_file
+        assert loaded_rules == test_rules
+    finally:
+        app.rules.RULES_FILE = original_file
 
 
 def test_save_multiple_rules(tmp_path):
@@ -54,11 +55,57 @@ def test_save_multiple_rules(tmp_path):
     original_file = app.rules.RULES_FILE
     app.rules.RULES_FILE = str(test_file)
 
-    save_rules(test_rules)
-    loaded_rules = load_rules()
+    try:
+        save_rules(test_rules)
+        loaded_rules = load_rules()
 
-    assert len(loaded_rules) == 2
-    assert loaded_rules[0]["name"] == "HTTP Rule"
-    assert loaded_rules[1]["port"] == 53
+        assert len(loaded_rules) == 2
+        assert loaded_rules[0]["name"] == "HTTP Rule"
+        assert loaded_rules[1]["port"] == 53
+    finally:
+        app.rules.RULES_FILE = original_file
 
-    app.rules.RULES_FILE = original_file
+
+def test_save_empty_rules(tmp_path):
+    test_file = tmp_path / "rules.json"
+
+    import app.rules
+
+    original_file = app.rules.RULES_FILE
+    app.rules.RULES_FILE = str(test_file)
+
+    try:
+        save_rules([])
+        loaded_rules = load_rules()
+
+        assert loaded_rules == []
+    finally:
+        app.rules.RULES_FILE = original_file
+
+
+def test_save_and_load_udp_rule(tmp_path):
+    test_file = tmp_path / "rules.json"
+
+    test_rules = [
+        {
+            "name": "DNS Rule",
+            "protocol": "UDP",
+            "port": 53,
+            "action": "DENY"
+        }
+    ]
+
+    import app.rules
+
+    original_file = app.rules.RULES_FILE
+    app.rules.RULES_FILE = str(test_file)
+
+    try:
+        save_rules(test_rules)
+        loaded_rules = load_rules()
+
+        assert loaded_rules[0]["protocol"] == "UDP"
+        assert loaded_rules[0]["port"] == 53
+        assert loaded_rules[0]["action"] == "DENY"
+    finally:
+        app.rules.RULES_FILE = original_file
