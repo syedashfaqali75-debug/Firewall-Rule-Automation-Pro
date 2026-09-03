@@ -2,7 +2,13 @@
 
 [![Python Tests](https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro/actions/workflows/python-tests.yml/badge.svg)](https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro/actions/workflows/python-tests.yml)
 
+<<<<<<< HEAD
 A Python-based Firewall Rule Automation and Management Tool designed to create, manage, validate, search, update, and delete firewall rules using a structured JSON configuration system.
+=======
+A Python-based firewall rule automation and management tool designed to create, manage, validate, search, and store firewall rules through a structured JSON configuration system.
+
+The project demonstrates rule management, input validation, JSON storage, application logging, automated testing, and GitHub Actions CI.
+>>>>>>> c029e6a (Improve README documentation)
 
 This project demonstrates practical Python development, modular architecture, data validation, logging, automated testing, and GitHub Actions CI.
 
@@ -22,6 +28,11 @@ This project demonstrates practical Python development, modular architecture, da
 - ✅ Automated tests with pytest
 - ✅ GitHub Actions CI
 - ✅ Modular Python project structure
+<<<<<<< HEAD
+=======
+
+---
+>>>>>>> c029e6a (Improve README documentation)
 
 ## 🛠️ Technologies Used
 
@@ -31,7 +42,13 @@ This project demonstrates practical Python development, modular architecture, da
 - Git
 - GitHub
 - GitHub Actions
+<<<<<<< HEAD
 - Logging
+=======
+- PowerShell
+
+---
+>>>>>>> c029e6a (Improve README documentation)
 
 ## 📁 Project Structure
 
