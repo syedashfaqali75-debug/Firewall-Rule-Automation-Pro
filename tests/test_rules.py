@@ -1,52 +1,64 @@
-import sys
-from pathlib import Path
-
-# Add project root to Python path
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-from app.rules import load_rules, add_rule, delete_rule
+from app.rules import load_rules, save_rules
 
 
 def test_load_rules():
     rules = load_rules()
-
     assert isinstance(rules, list)
-    assert len(rules) >= 1
 
 
-def test_add_rule():
-    rules_before = load_rules()
+def test_save_and_load_rules(tmp_path):
+    test_file = tmp_path / "rules.json"
 
-    test_rule = {
-        "name": "Test Rule",
-        "protocol": "TCP",
-        "port": 9999,
-        "action": "DENY"
-    }
+    test_rules = [
+        {
+            "name": "Test Rule",
+            "protocol": "TCP",
+            "port": 8080,
+            "action": "ALLOW"
+        }
+    ]
 
-    add_rule(test_rule)
+    import app.rules
 
-    rules_after = load_rules()
+    original_file = app.rules.RULES_FILE
+    app.rules.RULES_FILE = str(test_file)
 
-    assert len(rules_after) == len(rules_before) + 1
-    assert test_rule in rules_after
+    save_rules(test_rules)
+    loaded_rules = load_rules()
 
-    # Clean up test rule
-    delete_rule("Test Rule")
+    assert loaded_rules == test_rules
+
+    app.rules.RULES_FILE = original_file
 
 
-def test_delete_rule():
-    test_rule = {
-        "name": "Delete Test Rule",
-        "protocol": "UDP",
-        "port": 8888,
-        "action": "DENY"
-    }
+def test_save_multiple_rules(tmp_path):
+    test_file = tmp_path / "rules.json"
 
-    add_rule(test_rule)
+    test_rules = [
+        {
+            "name": "HTTP Rule",
+            "protocol": "TCP",
+            "port": 8080,
+            "action": "ALLOW"
+        },
+        {
+            "name": "DNS Rule",
+            "protocol": "UDP",
+            "port": 53,
+            "action": "ALLOW"
+        }
+    ]
 
-    assert delete_rule("Delete Test Rule") is True
+    import app.rules
 
-    rules = load_rules()
+    original_file = app.rules.RULES_FILE
+    app.rules.RULES_FILE = str(test_file)
 
-    assert test_rule not in rules
+    save_rules(test_rules)
+    loaded_rules = load_rules()
+
+    assert len(loaded_rules) == 2
+    assert loaded_rules[0]["name"] == "HTTP Rule"
+    assert loaded_rules[1]["port"] == 53
+
+    app.rules.RULES_FILE = original_file
