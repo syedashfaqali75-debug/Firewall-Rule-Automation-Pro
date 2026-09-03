@@ -1,5 +1,7 @@
 # 🔥 Firewall Rule Automation Pro
 
+[![Python Tests](https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro/actions/workflows/python-tests.yml/badge.svg)](https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro/actions/workflows/python-tests.yml)
+
 A Python-based Firewall Rule Automation and Management Tool designed to create, manage, validate, search, update, and delete firewall rules using a structured JSON configuration system.
 
 This project demonstrates practical Python development, modular architecture, data validation, logging, automated testing, and GitHub Actions CI.
@@ -9,26 +11,27 @@ This project demonstrates practical Python development, modular architecture, da
 - ✅ Add firewall rules
 - ✅ List all firewall rules
 - ✅ Update/Edit existing firewall rules
-- ✅ Delete firewall rules
 - ✅ Search and filter firewall rules
+- ✅ Delete firewall rules
 - ✅ TCP and UDP protocol support
 - ✅ ALLOW and DENY actions
-- ✅ Port validation (1–65535)
+- ✅ Port validation from 1–65535
 - ✅ Duplicate rule-name prevention
 - ✅ JSON-based rule storage
 - ✅ Application logging
 - ✅ Automated tests with pytest
 - ✅ GitHub Actions CI
+- ✅ Modular Python project structure
 
 ## 🛠️ Technologies Used
 
-- Python 3
-- Pytest
+- Python
 - JSON
-- Git & GitHub
+- Pytest
+- Git
+- GitHub
 - GitHub Actions
-- PowerShell
-- Windows
+- Logging
 
 ## 📁 Project Structure
 
@@ -41,13 +44,15 @@ Firewall-Rule-Automation-Pro/
 │
 ├── app/
 │   ├── __init__.py
-│   ├── firewall.py
-│   ├── logger.py
 │   ├── main.py
-│   └── rules.py
+│   ├── firewall.py
+│   ├── rules.py
+│   └── logger.py
 │
 ├── config/
 │   └── rules.json
+│
+├── logs/
 │
 ├── tests/
 │   └── test_rules.py
