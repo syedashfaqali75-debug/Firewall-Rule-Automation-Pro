@@ -1,70 +1,13 @@
-# 🔥 Firewall Rule Automation Pro
+### 🔥 Firewall Rule Automation Pro
 
-[![Python Tests](https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro/actions/workflows/python-tests.yml/badge.svg)](https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro/actions/workflows/python-tests.yml)
+[![View Project](https://img.shields.io/badge/GitHub-View%20Project-black?logo=github)](https://github.com/syedashfaqali75-debug/Firewall-Rule-Automation-Pro)
 
-A Python-based firewall rule automation and management tool designed to create, manage, validate, search, update, and delete firewall rules using a structured JSON configuration system.
+A Python-based firewall rule automation and management tool with:
 
-The project demonstrates practical Python development, modular architecture, data validation, logging, automated testing, and GitHub Actions CI.
-
----
-
-## 🚀 Features
-
-- ✅ Add firewall rules
-- ✅ List all firewall rules
-- ✅ Update/Edit existing firewall rules
-- ✅ Search and filter firewall rules
-- ✅ Delete firewall rules
-- ✅ TCP and UDP protocol support
-- ✅ ALLOW and DENY actions
-- ✅ Port validation from 1–65535
-- ✅ Duplicate rule-name prevention
-- ✅ JSON-based rule storage
-- ✅ Application logging
-- ✅ Automated tests with pytest
-- ✅ GitHub Actions CI
-- ✅ Modular Python project structure
-
----
-
-## 🛠️ Technologies Used
-
-- Python 3
-- JSON
-- Pytest
-- Git
-- GitHub
-- GitHub Actions
-- PowerShell
-
----
-
-## 📁 Project Structure
-
-```text
-Firewall-Rule-Automation-Pro/
-│
-├── .github/
-│   └── workflows/
-│       └── python-tests.yml
-│
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── firewall.py
-│   ├── rules.py
-│   └── logger.py
-│
-├── config/
-│   └── rules.json
-│
-├── logs/
-│   └── firewall.log
-│
-├── tests/
-│   └── test_rules.py
-│
-├── .gitignore
-├── LICENSE
-├── README.md
-└── requirements.txt
+- Firewall rule creation and management
+- Rule validation
+- Add, update, delete and search functionality
+- JSON-based configuration
+- Logging
+- Automated testing with Pytest
+- Continuous Integration with GitHub Actions
